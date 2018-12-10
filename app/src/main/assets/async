@@ -1,0 +1,58 @@
+    params = new HashMap<>();
+
+    getDevice(params,getActivity(),R.id.progressBarRegister);
+
+ ####################
+
+
+ private static void getDevice(HashMap<String, String> params, Activity activity, int bar) {
+
+         class RegisterUser extends AsyncTask<Void, Void, String> {
+
+             private ProgressBar progressBar;
+             private HashMap<String, String> params;
+             private Activity activity;
+             private int bar;
+             private Context context;
+
+             private RegisterUser(HashMap<String, String> params, Activity activity, int bar) {
+                 this.params = params;
+                 this.activity = activity;
+                 this.bar = bar;
+                 this.context = activity.getApplicationContext();
+             }
+
+             @Override
+             protected void onPreExecute() {
+                 super.onPreExecute();
+                 if(bar!=0) {
+                     progressBar = activity.findViewById(bar);
+                     progressBar.setVisibility(View.VISIBLE);
+                 }
+             }
+
+             @Override
+             protected String doInBackground(Void... voids) {
+                 //RequestHandler requestHandler = new RequestHandler();
+                 return "s";//requestHandler.sendPostRequest(UrlManager.GET_DEVICE, params);
+             }
+
+             @Override
+             protected void onPostExecute(String s) {
+                 super.onPostExecute(s);
+
+                 progressBar.setVisibility(View.GONE);
+                 activity.startActivity(new Intent(context,UserActivity.class));
+                 /*try {
+
+                     JSONObject result = new JSONObject(s);
+
+                 } catch (JSONException e) {
+                     e.printStackTrace();
+                 }*/
+             }
+         }
+
+         RegisterUser ru = new RegisterUser(params,activity,bar);
+         ru.execute();
+     }

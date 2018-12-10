@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_emp"
+        android:icon="@drawable/worker"
+        android:orderInCategory="100"
+        android:title="Employee Section"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/menu_refresh"
+        android:orderInCategory="150"
+        android:title="Refresh"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/logout"
+        android:orderInCategory="200"
+        android:title="Logout"
+        app:showAsAction="ifRoom" />
+</menu>
